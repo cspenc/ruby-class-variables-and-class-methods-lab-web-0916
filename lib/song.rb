@@ -32,17 +32,25 @@ class Song
   end
 
   def self.genre_count
-    @@genres.each do |genre|
-      @@genres_hash[genre] = @@genres.count(genre)
+    @@genres.each_with_object({}) do |genre, hash|
+      hash[genre] = @@genres.count(genre)
     end
-    @@genres_hash
+
+    # @@genres.each do |genre|
+    #   @@genres_hash[genre] = @@genres.count(genre)
+    # end
+    # @@genres_hash
   end
 
   def self.artist_count
-    @@artists.each do |artist|
-      @@artists_hash[artist] = @@artists.count(artist)
+    @@artists.each_with_object({}) do |artist, hash|
+      hash[artist] = @@artists.count(artist)
     end
-    @@artists_hash
+
+    # @@artists.each do |artist|
+    #   @@artists_hash[artist] = @@artists.count(artist)
+    # end
+    # @@artists_hash
   end
 
 end
